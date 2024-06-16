@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HuaWhereThree
+namespace HuaWhereThree.Static
 {
     public static class HuaWhereMain
     {
