@@ -21,6 +21,8 @@ namespace HuaWhereThree
             // TO FORMAT CONSOLE OUTPUT.
             int counter = 1;
 
+            Console.WriteLine("\nINITIAL COLLECTION: int[150] -- VIA foreach\n");
+
             foreach(int number in setNumbers)
             {
                 
@@ -38,7 +40,7 @@ namespace HuaWhereThree
 
             IEnumerable<int> positiveQuerry = setNumbers.HuaWhere(IsPositive);
 
-            Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nCREATING VARIABLE IEnumerable<int> positiveQuerry = setNumbers.HuaWhere(IsPositive),\n AND THEN CHANGE COLLECTION VIA foreach, TO MAKE ALL NUMBERS POSITIVE, AFTER THIS CREATE NEW LIST:\n List<int> numberList = positiveQuerry.ToList(), THEN MAKE DISPLAY THE LIST ON THE CONSOLE.\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
             // ACTUALLY CHANGE THE COLLECTION TO CONFIRM EXECUTION OF THE METHOD ONLY ON foreach-MECHANISM EXECUTION.
             for (int index = 0; index < setNumbers.Length; index = index + 1)

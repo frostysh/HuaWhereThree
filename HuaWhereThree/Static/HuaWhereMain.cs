@@ -4,16 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HuaWhereThree.Delegate;
 
 
 namespace HuaWhereThree.Static
 {
     public static class HuaWhereMain
     {
-        // // // // // DELEGATES
-
-        public delegate bool Seeker<TCollection>(TCollection item);
-
         // // // // // METHODS
 
         //  МЕТОД-РОЗШИРЕННЯ.
