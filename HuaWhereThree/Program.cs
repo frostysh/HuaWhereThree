@@ -28,11 +28,11 @@ namespace HuaWhereThree
                 
                 if ((counter != 0) && (counter % 15 == 0))
                 {
-                    Console.WriteLine("{0, 4}|", number);
+                    Console.WriteLine("{0, 5}|", number);
                 }
                 else
                 {
-                    Console.Write("{0, 4}|", number);
+                    Console.Write("{0, 5}|", number);
                 }
 
                 counter = counter + 1;
@@ -58,11 +58,11 @@ namespace HuaWhereThree
             {
                 if ((counter != 0) && (counter % 15 == 0))
                 {
-                    Console.WriteLine("{0, 4}|", number);
+                    Console.WriteLine("{0, 5}|", number);
                 }
                 else
                 {
-                    Console.Write("{0, 4}|", number);
+                    Console.Write("{0, 5}|", number);
                 }
 
                 counter = counter + 1;
