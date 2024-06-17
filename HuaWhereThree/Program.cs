@@ -10,7 +10,7 @@ namespace HuaWhereThree
 
             Console.WriteLine("Ad");
 
-            int[] setNumbers = new int[300];
+            int[] setNumbers = new int[150];
 
             // TO FILL THE ARRAY.
             for (int index = 0; index < setNumbers.Length; index = index +1)
@@ -36,9 +36,16 @@ namespace HuaWhereThree
                 counter = counter + 1;
             }
 
-            IEnumerable<int> positiveQuerry = setNumbers.HuaWhere(NegativeToZero);
+            IEnumerable<int> positiveQuerry = setNumbers.HuaWhere(IsPositive);
 
             Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+
+            // ACTUALLY CHANGE THE COLLECTION TO CONFIRM EXECUTION OF THE METHOD ONLY ON foreach-MECHANISM EXECUTION.
+            for (int index = 0; index < setNumbers.Length; index = index + 1)
+            {
+                // MAKES ALL NUMBERS POSITIVE.
+                setNumbers[index] = Math.Abs(setNumbers[index]);
+            }
 
             // TO ACTUALLY PERFORM ITERATION.
             List<int> numberList = positiveQuerry.ToList();
@@ -60,19 +67,19 @@ namespace HuaWhereThree
             }
         }
 
-        public static int NegativeToZero(int number)
+        public static bool IsPositive(int number)
         {
             if (number < 0)
             {
-                return (number * 0);
+                return false;
             }
             else if (number == 0)
             {
-                return 0;
+                return false;
             }
             else
             {
-                return number;
+                return true;
             }
         }
     }
