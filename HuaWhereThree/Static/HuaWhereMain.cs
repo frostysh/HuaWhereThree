@@ -10,7 +10,7 @@ namespace HuaWhereThree.Static
 {
     public static class HuaWhereMain
     {
-        // DELEGATES
+        // // // // // DELEGATES
 
         public delegate TCollection Seeker<TCollection>(TCollection item);
 
