@@ -12,7 +12,7 @@ namespace HuaWhereThree.Static
     {
         // // // // // DELEGATES
 
-        public delegate TCollection Seeker<TCollection>(TCollection item);
+        public delegate bool Seeker<TCollection>(TCollection item);
 
         // // // // // METHODS
 
@@ -27,11 +27,15 @@ namespace HuaWhereThree.Static
             // ОСКІЛЬКИ ТИП IEnumerable, МИ МОЖЕМО ВИКОРИСТАТИ foreach, АЛЕ ЯК ВОНО ПРАЦЮЄ, Я ОСОБИСТО НЕ МАЮ УЯВЛЕННЯ.
             foreach (TCollection item in collection)
             {
-               // СПЕЦІАЛЬНИЙ ОПЕРАТОР yield — ЗУПИНЯЄ ІТЕРАЦІЮ, ПОВЕРТАЄ РЕЗУЛЬТАТ РОБОТИ seeker НА КОЛЕКЦІЮ IEnumerable (O_O)...
-               // А ТОДІ ЗАПУСКАЄ ІТЕРАТОР ЗНОВУ, НЕ ВИХОДЯЧИ ЗА РАМКИ ОПЕРАТОРА ОБЛАСТІ (scope) {}...
-               // ТОБТО ПРИ ВИКЛИКУ ToList() НАПРИКЛА (МЕТОД РОЗШИРЕННЯ), БУДЕ ПРАЦЮВАТИ ДВА ІТЕРАТОРА! О_О, КОРОТШЕ Я ЗАПЛУТАВСЯ...
-               // А, ТАК, ПАРДОН ЗА EXTENSIVE COMMENTS...
-               yield return seeker(item);
+                // СПЕЦІАЛЬНИЙ ОПЕРАТОР yield — ЗУПИНЯЄ ІТЕРАЦІЮ, ПОВЕРТАЄ РЕЗУЛЬТАТ РОБОТИ seeker НА КОЛЕКЦІЮ IEnumerable (O_O)...
+                // А ТОДІ ЗАПУСКАЄ ІТЕРАТОР ЗНОВУ, НЕ ВИХОДЯЧИ ЗА РАМКИ ОПЕРАТОРА ОБЛАСТІ (scope) {}...
+                // ТОБТО ПРИ ВИКЛИКУ ToList() НАПРИКЛА (МЕТОД РОЗШИРЕННЯ), БУДЕ ПРАЦЮВАТИ ДВА ІТЕРАТОРА! О_О, КОРОТШЕ Я ЗАПЛУТАВСЯ...
+                // А, ТАК, ПАРДОН ЗА EXTENSIVE COMMENTS...
+                // ВИКОРИСТОВУЄМО БУЛЬОВИЙ ДЕЛЕГАТ.
+                if (seeker(item))
+                {
+                    yield return item;
+                }
             }
         }
     }
